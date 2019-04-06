@@ -8,13 +8,17 @@ public class DragDrop : MonoBehaviour
 	public GameObject Target;
 	public Vector3 screenSpace;
 	public Vector3 offset;
+	private Quaternion initRota;
 
-	private float dist = 0.25f;
+	private float distHover = -0.25f;
+	private float dist = 0f;
 
 	// Use this for initialization
 	void Start ()
 	{
 		Target = gameObject;
+		initRota = transform.rotation;
+		dist = transform.position.z;
 	}
 	
 	// Update is called once per frame
@@ -44,19 +48,21 @@ public class DragDrop : MonoBehaviour
 			 dir = curPosition - trans.position;
 			//update the position of the object in the world
 			trans.position = curPosition;
+
+		// https://answers.unity.com/questions/46845/face-forward-direction-of-movement.html#
+			 trans.rotation = Quaternion.Slerp(
+		        trans.rotation,
+		        Quaternion.LookRotation(dir),
+		        Time.deltaTime * 3f
+		    );
+		} else {
+			 trans.rotation = initRota;
 		}
 
         // Hover
 		var asd = trans.position;
-		asd.z = _mouseState ? -dist : 0;
+		asd.z = _mouseState ? distHover : dist;
 		trans.position = asd;
-
-		// https://answers.unity.com/questions/46845/face-forward-direction-of-movement.html#
-		 trans.rotation = Quaternion.Slerp(
-	        trans.rotation,
-	        Quaternion.LookRotation(dir),
-	        Time.deltaTime * 3f
-	    );
 	}
 	
 	

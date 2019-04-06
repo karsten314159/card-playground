@@ -2,12 +2,13 @@
 "companyName": "karsten314159",
 "productName": "Heroes",
 "dataUrl": "Dist.data.unityweb",
-"wasmCodeUrl": "Dist.wasm.code.unityweb",
-"wasmFrameworkUrl": "Dist.wasm.framework.unityweb",
+"asmCodeUrl": "Dist.asm.code.unityweb",
+"asmMemoryUrl": "Dist.asm.memory.unityweb",
+"asmFrameworkUrl": "Dist.asm.framework.unityweb",
 "TOTAL_MEMORY": 268435456,
 "graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
 "webglContextAttributes": {"preserveDrawingBuffer": false},
 "splashScreenStyle": "Dark",
 "backgroundColor": "#231F20",
-"cacheControl": {"default": "must-revalidate"}
+"cacheControl": {"dataUrl": "must-revalidate"}
 }
