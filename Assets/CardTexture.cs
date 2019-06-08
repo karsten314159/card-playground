@@ -27,7 +27,7 @@ public class CardTexture : MonoBehaviour
 
 	IEnumerator initTex ()
 	{
-		var pref = "https://cors-anywhere.herokuapp.com/";
+		var pref = ""; // "https://cors-anywhere.herokuapp.com/";
 		var nameUrl = cardName;
 		var url = pref + "http://gatherer.wizards.com/Handlers/Image.ashx?type=card&name=" + nameUrl;
 
